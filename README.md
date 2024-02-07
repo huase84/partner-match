@@ -1,18 +1,22 @@
-# Vue 3 + TypeScript + Vite
+## 项目框架搭建
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+### 依赖和环境
 
-## Recommended IDE Setup
+* **npm create vite**
+* 选择**vue+ts**（js超集，规范数据类型）
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+### git仓库
 
-## Type Support For `.vue` Imports in TS
+* 登录git账号，通过**new按钮**新建项目
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+#### 推送项目到git上
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+```sh
+git init   # 把项目初始化,相当于在项目的跟目录生成一个 .git 目录
+git add .    # 把项目的所有文件加入暂存区
+git commit -am '项目初始化'     # 把项目提交到本地仓库，引号里面的是这次提交的注释，方便以后查看。
+git remote rm origin  # 先删除远程 Git 仓库
+git remote add origin https://github.com/huase84/partner-match.git
+git push origin master # 将本地缓存仓库的文件推送到远程。master这个是分支名
+```
 
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
