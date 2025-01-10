@@ -10,8 +10,7 @@
     </template>
   </van-nav-bar>
   <div class="contant">
-    <Index v-if="active == 'index'" />
-    <Team v-if="active == 'team'" />
+    <RouterView />
   </div>
   <van-tabbar v-model="active" @change="onChange">
     <van-tabbar-item icon="home-o" name="index">主页</van-tabbar-item>
@@ -20,17 +19,32 @@
   </van-tabbar>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { showToast } from 'vant'
 import 'vant/es/toast/style';
 import { ref } from 'vue';
-import Index from '../views/Index.vue'
-import Team from '../views/Team.vue'
+import route from '../router/index.js';
 
-const onClickLeft = () => showToast('返回')
-const onClickRight = () => showToast('按钮')
-const onChange = () => showToast('切换')
+// 默认index页
 const active = ref('index');
+route.push('/' + active.value)
+
+// 切换路由
+const onChange = () => {
+  route.push('/' + active.value)
+  showToast('切换')
+}
+// 返回
+const onClickLeft = () => {
+  route.back()
+  showToast('返回')
+}
+// 跳转搜索页
+const onClickRight = () => {
+  route.push('/searchTag')
+  showToast('按钮')
+}
+
 
 </script>
 
