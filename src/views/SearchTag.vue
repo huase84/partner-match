@@ -69,18 +69,32 @@ const filterTags = () => {
     console.log('ttt',tagList, 'sdfsdfs',tagValue.value)
     return
   }
-  tagList.value = originTagList.map(item => {
-    var children = []
-    item.children.forEach(child => {
-      if (child.text.includes(tagValue.value)) {
-        children.push(child)
-      }
-    })
-    return {
-      text: item.text,
-      children: children
+
+  // 方式一
+  // tagList.value = originTagList.map(item => {
+  //   var children = []
+  //   item.children.forEach(child => {
+  //     if (child.text.includes(tagValue.value)) {
+  //       children.push(child)
+  //     }
+  //   })
+  //   return {
+  //     text: item.text,
+  //     children: children
+  //   }
+  // })
+  // console.log('filterTags', tagValue.value, tagList)
+
+  // 方式二
+  tagList.value = []
+  originTagList.forEach(item => {
+    const children = item.children.filter(c => c.text.includes(tagValue.value))
+    if (children.length > 0) {
+      tagList.value.push({
+        text: item.text,
+        children: children
+      })
     }
   })
-  console.log('filterTags', tagValue.value, tagList)
 }
 </script>
