@@ -34,23 +34,25 @@
     :items="tagList"
   />
   <div style="margin: 50px;">
-    <van-button style="width: 100%;" type="primary">查询</van-button>
+    <van-button style="width: 100%;" type="primary" @click="search">查询</van-button>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, reactive } from 'vue';
+import { useRouter } from 'vue-router';
 
+const router = useRouter()
 var tagValue = ref('')
 
 const activeIds = ref([]);
 const activeIndex = ref(0);
 const originTagList = [
   {
-    text: '浙江',
+    text: '语言',
     children: [
-      { text: '杭州', id: '杭州' },
-      { text: '温州', id: '温州' },
+      { text: 'java', id: 'java' },
+      { text: 'c', id: 'c' },
     ],
   },
   {
@@ -94,6 +96,15 @@ const filterTags = () => {
         text: item.text,
         children: children
       })
+    }
+  })
+}
+
+const search = () => {
+  router.push({
+    path: '/searchTag/searchResultList',
+    query: {
+      ids: activeIds.value
     }
   })
 }

@@ -6,6 +6,7 @@ import Team from '../views/Team.vue'
 import SearchTag from '../views/SearchTag.vue'
 import UserInfo from '../views/UserInfo.vue'
 import UserEdit from '../views/UserEdit.vue'
+import SearchResultList from '../views/SearchResultList.vue'
 
 // 路由配置
 const routes = [
@@ -13,7 +14,8 @@ const routes = [
   { path: '/team', title: '队伍', component: Team },
   { path: '/searchTag', component: SearchTag },
   { path: '/user', title: '用户信息', component: UserInfo },
-  { path: '/user/edit', title: '用户信息修改', component: UserEdit }
+  { path: '/user/edit', title: '用户信息修改', component: UserEdit },
+  { path: '/searchTag/searchResultList', title: '搜索结果', component: SearchResultList },
 ]
 
 // 创建路由实例
