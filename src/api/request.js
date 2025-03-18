@@ -19,7 +19,6 @@ instance.interceptors.request.use(function (config) {
 instance.interceptors.response.use(function (response) {
   // Any status code that lie within the range of 2xx cause this function to trigger
   // Do something with response data
-  console.log(response, 'res');
   var res = response.data;
   if(res.code === 200) {
     return res;
