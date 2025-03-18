@@ -2,11 +2,16 @@ import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
 import router from './router'
+import "./permission"
+import { createPinia } from 'pinia'
+
 // 按需引入vant组件
 import { Button, NavBar, Icon, Toast, Tabbar, TabbarItem, Search, TreeSelect, Tag, Divider, Cell, CellGroup, Form, Field, Card } from 'vant'
 
+const pinia = createPinia()
 const app = createApp(App)
 // 按需引入vant组件
+app.use(pinia)
 app.use(Button)
 app.use(NavBar)
 app.use(Icon)

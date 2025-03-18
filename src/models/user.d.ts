@@ -13,3 +13,8 @@ export type user = {
   tags: string[];
   createTime: Date;
 }
+
+export type LoginInfo = {
+  userAccount: string,
+  userPassword: string
+}
