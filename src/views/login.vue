@@ -27,10 +27,10 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import { useStore } from '@/store/user.ts'
+import { userStore } from '@/store/user.ts'
 import route from '@/router/index.js';
 
-const store = useStore();
+const store = userStore();
 
 const userAccount = ref('huashi');
 const password = ref('12345678');

@@ -1,11 +1,11 @@
 import router from "@/router"
-import { useStore } from '@/store/user.ts'
+import { userStore } from '@/store/user.ts'
 
 var isAuthenticated  = false
 
 // 前置路由守卫
 router.beforeEach((to, from) => {
-  const user = useStore()
+  const user = userStore()
   // 判断用户是否登录
   if(!isAuthenticated) {
     if(to.name !== 'Login') {

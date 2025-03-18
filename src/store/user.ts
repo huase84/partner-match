@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 import { login, register, getUserInfo, logout} from '@/api/user'
 import { ref } from 'vue'
 
-export const useStore = defineStore('user', () =>{
+export const userStore = defineStore('user', () =>{
   const user = ref({})
   
   const setUser = (data: user) => {
