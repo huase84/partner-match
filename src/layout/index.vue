@@ -32,17 +32,14 @@ route.push('/' + active.value)
 // 切换路由
 const onChange = () => {
   route.push('/' + active.value)
-  showToast('切换')
 }
 // 返回
 const onClickLeft = () => {
   route.back()
-  showToast('返回')
 }
 // 跳转搜索页
 const onClickRight = () => {
   route.push('/searchTag')
-  showToast('按钮')
 }
 
 
