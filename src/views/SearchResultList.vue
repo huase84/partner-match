@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { getUserListByTags } from '@/api/user'
 
@@ -53,17 +53,19 @@ const talkMe = () => {
   console.log('talkMe')
 }
 
-const userListByTags = () => {
+const userListByTags = async () => {
   const params = {
-    tagNames: 'java'
+    tagNames: route.query.ids.join(',')
   }
   console.log(params, 'params')
-  getUserListByTags(params).then(res => {
+  await getUserListByTags(params).then(res => {
     console.log(res.data, 'res.data')
     userList.value = res.data
   })
 }
 
-userListByTags()
+onMounted(() => {
+  userListByTags()
+})
 
 </script>
