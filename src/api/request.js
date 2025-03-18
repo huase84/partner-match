@@ -4,6 +4,8 @@ const instance = axios.create({
   baseURL: "http://localhost:8081/",
 });
 
+instance.defaults.withCredentials = true; // 允许携带 cookie
+
 // Add a request interceptor
 instance.interceptors.request.use(function (config) {
   // Do something before request is sent
