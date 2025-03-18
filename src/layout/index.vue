@@ -1,6 +1,6 @@
 <template>
   <van-nav-bar
-    title="首页"
+    :title="title"
     left-arrow
     @click-left="onClickLeft"
     @click-right="onClickRight"
@@ -24,7 +24,9 @@ import { showToast } from 'vant'
 import 'vant/es/toast/style';
 import { ref } from 'vue';
 import route from '../router/index.js';
+import { userStore } from '@/store/user.ts'
 
+const title = ref('首页')
 // 默认index页
 const active = ref('index');
 route.push('/' + active.value)
@@ -41,6 +43,23 @@ const onClickLeft = () => {
 const onClickRight = () => {
   route.push('/searchTag')
 }
+
+// 前置路由守卫
+route.beforeEach(async (to, from) => {
+  console.log(to, 'to')
+  title.value = to.name
+  const user = userStore()
+  // 判断用户是否登录
+  if(to.path == '/user') {
+    // 获取用户信息
+    const res = await user.getUser()
+    if(res.code == 200 && res.data != null) {
+    } else {
+      // 跳转至登录页 
+      return "/login"
+    }
+  }
+})
 
 
 </script>

@@ -41,7 +41,7 @@ const onSubmit = (values) => {
   }).then(res => {
     if(res.code == 200) {
       store.setUser(res.data)
-      route.push('/')
+      route.push('/user')
     }
     console.log(res, 'login')
   })

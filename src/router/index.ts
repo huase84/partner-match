@@ -12,29 +12,34 @@ import Login from '../views/login.vue'
 
 // 路由配置
 const routes = [
-  { path: '/login', name: 'Login', title: '登录', component: Login },
+  { path: '/', 
+    component: Layout,
+    children:[
+      { path: 'login', name: '登录', component: Login },
+    ]
+  },
   { path: '/', 
     component: Layout,
     redirect: '/index', 
     children:[
-      { path: 'index', title: '首页', component: Index },
+      { path: 'index', name: '首页', component: Index },
     ]
   },
   { path: '/', component: Layout,
     children:[
-      { path: 'team', title: '队伍', component: Team },
+      { path: 'team', name: '队伍', component: Team },
     ]
   },
   { path: '/', component: Layout,
     children:[
-      { path: 'searchTag', component: SearchTag },
-      { path: 'searchTag/searchResultList', title: '搜索结果', component: SearchResultList },
+      { path: 'searchTag', name: '搜索', component: SearchTag },
+      { path: 'searchTag/searchResultList', name: '搜索结果', component: SearchResultList },
     ]
   },
   { path: '/', component: Layout,
     children:[
-      { path: 'user', title: '用户信息', component: UserInfo },
-      { path: 'user/edit', title: '用户信息修改', component: UserEdit }
+      { path: 'user', name: '用户信息', component: UserInfo },
+      { path: 'user/edit', name: '用户信息修改', component: UserEdit }
     ]
   },
 ]
