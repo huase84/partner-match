@@ -37,6 +37,7 @@ export const userStore = defineStore('user', () =>{
       if (res.code === 200) {
         user.value = {}
       }
+      return res
     } catch (err) {
       throw err // 保持错误传递
     }
