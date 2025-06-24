@@ -61,6 +61,9 @@ const userListByTags = async () => {
   await getUserListByTags(params).then(res => {
     console.log(res.data, 'res.data')
     userList.value = res.data
+    userList.value.forEach(item => {
+      item.tags = JSON.parse(item.tags)
+    })
   })
 }
 
